@@ -3,5 +3,6 @@
 @foreach ($posts as $post)
 
 <P>{{ $post->title }}</P>
+<a href="{{ route('posts.show', $post->id) }}">Ver</a>
 
 @endforeach
