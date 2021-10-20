@@ -1,4 +1,11 @@
 <h1>POSTS</h1>
+
+@if (session('message'))
+    <div>
+        {{ session('message') }}
+    </div>
+@endif
+
 <a href="{{ route('posts.create-form') }}">Adicionar Novo Post</a>
 @foreach ($posts as $post)
 

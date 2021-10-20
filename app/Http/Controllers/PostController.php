@@ -22,16 +22,52 @@ class PostController extends Controller
 
         Post::create($request->all());
 
-        return redirect()->route('posts.list');
+        return redirect()
+                    ->route('posts.list')
+                    ->with('message', 'Post criado com sucesso');
 
     }
 
     public function show($id){
 
-        $post = Post::where('id', $id)->first();
-        $post = Post::find($id);
+        if(!$post = Post::find($id)){
+            return redirect()->route('posts.list');
+        }
+        return view('admin.posts.show', compact('post'));
+    }
 
-        dd($post);
+    public function destroy($id){
 
+        if(!$post = Post::find($id)){
+            return redirect()->route('posts.list');
+        }
+        $post->delete();
+
+        return redirect()
+                    ->route('posts.list')
+                    ->with('message', 'Post deletado com sucesso');
+    }
+
+    public function edit($id){
+
+        if(!$post = Post::find($id)){
+            return redirect()->route('posts.list');
+        }
+
+        return view('admin.posts.edit', compact('post'));
+
+    }
+
+    public function update(StoreUpdatePost $request, $id){
+
+        if(!$post = Post::find($id)){
+            return redirect()->route('posts.list');
+        }
+
+        $post->update($request->all());
+
+        return redirect()
+                    ->route('posts.list')
+                    ->with('message', 'Post editado com sucesso');
     }
 }
