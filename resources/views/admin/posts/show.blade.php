@@ -1,11 +1,13 @@
+@extends('admin.layouts.app')
+
+@section('title', 'Detalhes do Post')
+
+@section('content')
+
 <h1>Detalhes do Post {{ $post->title }}</h1>
 <ul>
-    <li>
-    <strong>TItulo: </strong>{{ $post->title }}
-    </li>
-    <li>
-      <strong>Conteudo: </strong>{{ $post->content }}
-    </li>
+    <li><strong>TItulo: </strong>{{ $post->title }} </li>
+    <li> <strong>Conteudo: </strong>{{ $post->content }}</li>
 </ul>
 
 <form action="{{ route('posts.edit', $post->id ) }}">
@@ -17,3 +19,6 @@
     <input type="hidden" name="_method" value="DELETE">
     <button>Deletar o Post {{ $post->title }}</button>
 </form>
+
+
+@endsection
