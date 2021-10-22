@@ -8,6 +8,7 @@
 <ul>
     <li><strong>TItulo: </strong>{{ $post->title }} </li>
     <li> <strong>Conteudo: </strong>{{ $post->content }}</li>
+    <li><img src="{{ url("storage/{$post->image}") }}" alt=""></li>
 </ul>
 
 <form action="{{ route('posts.edit', $post->id ) }}">
