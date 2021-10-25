@@ -11,7 +11,6 @@ use Illuminate\Support\Str;
 class PostController extends Controller
 {
     public function list(){
-
         $posts = Post::latest()->paginate(4);
         return view('admin.posts.posts', compact('posts'));
     }

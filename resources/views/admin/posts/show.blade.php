@@ -3,23 +3,31 @@
 @section('title', 'Detalhes do Post')
 
 @section('content')
+<div class="bg-secondary p-5 rounded-lg m-3">
+<h1>Detalhes do Post - {{ $post->title }}</h1>
+</div>
 
-<h1>Detalhes do Post {{ $post->title }}</h1>
-<ul>
-    <li><strong>TItulo: </strong>{{ $post->title }} </li>
-    <li> <strong>Conteudo: </strong>{{ $post->content }}</li>
-    <li><img src="{{ url("storage/{$post->image}") }}" alt=""></li>
-</ul>
+<div class="container">
+    <div class="row d-flex justify-content-center">
+        <div>
+            <h1><strong>TItulo: </strong>{{ $post->title }}</h1>
+            <img src="{{ url("storage/{$post->image}") }}" class="img rounded" alt="post">
+            <strong>Conteudo: </strong>{{ $post->content }}
+        </div>
+    </div>
 
-<form action="{{ route('posts.edit', $post->id ) }}">
-    @csrf
-    <button>Editar o Post {{ $post->title }}</button>
-</form>
-<form action="{{ route('posts.destroy', $post->id ) }}" method="POST">
-    @csrf
-    <input type="hidden" name="_method" value="DELETE">
-    <button>Deletar o Post {{ $post->title }}</button>
-</form>
+    <div class="row d-flex justify-content-end">
+        <a class="btn btn-secondary" href="{{ route('posts.edit', $post->id ) }}">Editar o Post {{ $post->title }}</a>
+
+        <form action="{{ route('posts.destroy', $post->id ) }}" method="POST">
+            @csrf
+            @method('delete')
+            <button class="btn btn-danger" >Deletar o Post {{ $post->title }}</button>
+        </form>
+    </div>
+
+</div>
+
 
 
 @endsection

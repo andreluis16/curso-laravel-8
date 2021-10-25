@@ -9,14 +9,23 @@
 @endif
 
 @csrf
+<div class="container">
+    <div class="form-group">
+        <label>Imagem</label>
+        <input type="file" name="image" class="form-control-file">
+    </div>
 
-<label for="">Imagem</label>
-<input type="file" name="image" id="image">
+    <div class="form-group">
+        <label for="">Titulo</label>
+        <input type="text" name="title" class="form-control" id="title" placeholder="titulo" value="{{ $post->title ?? old('title') }}">
+    </div>
 
-<label for="">Titulo</label>
-<input type="text" name="title" id="title" placeholder="titulo" value="{{ $post->title ?? old('title') }}">
+    <div class="form-group">
+        <label for="">Conteudo</label>
+        <textarea name="content" class="form-control" placeholder="conteudo">{{ $post->content ?? old('content') }}</textarea>
+    </div>
 
-<label for="">Conteudo</label>
-<textarea name="content" id="content" cols="30" rows="4" placeholder="conteudo">{{ $post->content ?? old('content') }}</textarea>
+    <button type="submit">Enviar</button>
+</div>
 
-<button type="submit">Criar</button>
+

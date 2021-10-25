@@ -1,0 +1,9 @@
+.img-small{
+    max-width: 100px;
+    max-height: 100px;
+}
+
+.img{
+    width: 100%;
+    height: 350px;
+}

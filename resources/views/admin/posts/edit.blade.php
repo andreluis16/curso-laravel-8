@@ -4,7 +4,9 @@
 
 @section('content')
 
-<h1>Editar Post <strong>{{ $post->title }}</strong> </h1>
+<div class="bg-secondary p-5 rounded-lg m-3">
+    <h1>Editar Post - {{ $post->title }}</h1>
+</div>
 
 <form method="POST" action="{{ route('posts.update', $post->id) }}" enctype="multipart/form-data">
     @method('put')
