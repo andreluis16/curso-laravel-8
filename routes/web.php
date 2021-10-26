@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\MusicController;
 use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Route;
 
@@ -19,6 +20,8 @@ Route::get('/', function () {
 });
 
 Route::middleware(['auth'])->group(function () {
+
+    //Posts Routes
     Route::any('/posts/search', [PostController::class, 'search'])->name('posts.search');
     Route::get('/posts', [PostController::class, 'list'])->name('posts.list');
     Route::get('/posts/create-form', [PostController::class, 'createForm'])->name('posts.create-form');
@@ -27,7 +30,16 @@ Route::middleware(['auth'])->group(function () {
     Route::delete('/posts/{id}', [PostController::class, 'destroy'])->name('posts.destroy');
     Route::get('/posts/edit/{id}', [PostController::class, 'edit'])->name('posts.edit');
     Route::put('/posts/{id}', [PostController::class, 'update'])->name('posts.update');
+
+    //Music Routes
+    Route::get('/music', [MusicController::class, 'list'])->name('music.list');
+    Route::get('/music/create-form', [MusicController::class, 'createForm'])->name('music.create-form');
+    Route::post('/music/create-save', [MusicController::class, 'create'])->name('music.create-save');
+    Route::get('/music/search', [MusicController::class, 'search'])->name('music.search');
+    Route::get('/music/{id}', [MusicController::class, 'show'])->name('music.show');
 });
+
+
 
 Route::get('/dashboard', function () {
     return view('dashboard');
