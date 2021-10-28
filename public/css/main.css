@@ -7,3 +7,8 @@
     width: 100%;
     height: 350px;
 }
+
+.img-size{
+    max-width: 150px;
+    max-height: 150px;
+}

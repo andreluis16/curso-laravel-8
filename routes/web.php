@@ -35,8 +35,11 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/music', [MusicController::class, 'list'])->name('music.list');
     Route::get('/music/create-form', [MusicController::class, 'createForm'])->name('music.create-form');
     Route::post('/music/create-save', [MusicController::class, 'create'])->name('music.create-save');
-    Route::get('/music/search', [MusicController::class, 'search'])->name('music.search');
+    Route::any('/music/search', [MusicController::class, 'search'])->name('music.search');
     Route::get('/music/{id}', [MusicController::class, 'show'])->name('music.show');
+    Route::delete('music/{id}', [MusicController::class, 'destroy'])->name('music.destroy');
+    Route::get('music/edit/{id}', [MusicController::class, 'edit'])->name('music.edit');
+    Route::put('music/{id}', [MusicController::class, 'update'])->name('music.update');
 });
 
 

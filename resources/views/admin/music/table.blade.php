@@ -17,7 +17,7 @@
 <div class="row m-1">
 
     <div class="col-xl-9">
-        <a class="btn btn-success" href="{{ route('music.create-form') }}">Adicionar Novo Post</a>
+        <a class="btn btn-success" href="{{ route('music.create-form') }}">Adicionar Nova Musica</a>
     </div>
     <div class="col-xl-3">
         <form class="form-inline"  action="{{ route('music.search') }}" method="POST">
@@ -30,7 +30,7 @@
 </div>
 
 <table class="table table-bordered">
-    <thead class="thead-light">
+    <thead class="thead-light ">
         <th>Id</th>
         <th>Banda</th>
         <th>Musica</th>

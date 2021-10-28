@@ -13,7 +13,7 @@
     @csrf
     <div class="form-group">
         <label for="">Banda</label>
-        <input type="text" name="band" class="form-control" id="title" placeholder="titulo" value="{{ $music->title ?? old('title') }}">
+        <input type="text" name="band" class="form-control" id="band" placeholder="nome da banda" value="{{ $music->band ?? old('band') }}">
     </div>
 
     <div class="form-group">
@@ -23,12 +23,12 @@
 
     <div class="form-group">
         <label for="">Nome da Musica</label>
-        <input type="text" name="name" class="form-control" id="title" placeholder="titulo" value="{{ $music->title ?? old('title') }}">
+        <input type="text" name="name" class="form-control" id="name" placeholder="nome da musica" value="{{ $music->name ?? old('name') }}">
     </div>
 
     <div class="form-group">
         <label for="">Letra da Musica</label>
-        <textarea name="lyrics" class="form-control" placeholder="conteudo">{{ $music->content ?? old('content') }}</textarea>
+        <textarea name="lyrics" class="form-control" placeholder="letra original da musica">{{ $music->lyrics ?? old('lyrics') }}</textarea>
     </div>
 
     <button type="submit">Enviar</button>
