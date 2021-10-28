@@ -1,6 +1,6 @@
 @extends('admin.layouts.app')
 
-@section('titke', 'Adicionar Musica')
+@section('title', 'Adicionar Musica')
 
 @section('content')
 
